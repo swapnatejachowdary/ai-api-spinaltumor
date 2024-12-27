@@ -1,6 +1,6 @@
 import pickle
 from flask import Flask,request 
-api=Flask(_name_)
+api=Flask(__name__)
 with open('ai.pkl','rb') as f:
     ai=pickle.load(f)
 @api.route('/')
@@ -14,7 +14,7 @@ def predict():
     data=[[moisture]]
     response=ai.predict(data)[0]
     return response
-if _name=="main_":
+if __name__=="__main__":
     api.run(
         host='0.0.0.0',
         port=2000
